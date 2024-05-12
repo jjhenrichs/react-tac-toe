@@ -3,10 +3,12 @@ import React from "react";
 import Board from "../Board/Board";
 
 function App() {
+  const board = ["", "", "", "", "", "", "", "", ""];
+
   return (
     <div className="App">
       <h1>Tic-Tac-Toe</h1>
-      <Board />
+      <Board board={board} />
     </div>
   );
 }
