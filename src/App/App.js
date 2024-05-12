@@ -3,7 +3,7 @@ import React from "react";
 import Board from "../Board/Board";
 
 function App() {
-  const board = ["", "", "", "", "", "", "", "", ""];
+  const board = ["X", "X", "", "", "", "", "", "", ""];
 
   return (
     <div className="App">

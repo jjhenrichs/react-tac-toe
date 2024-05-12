@@ -1,8 +1,11 @@
 #board {
   border: 1px solid black;
-  width: 300px;
-  height: 300px;
+  width: 330px;
+  height: 330px;
   background: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .center {
