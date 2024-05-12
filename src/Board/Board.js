@@ -3,5 +3,10 @@ import "./Board.css";
 import Tile from "../Tile/Tile";
 
 export default function Board() {
-  return <div id="board" className="center"></div>;
+  return (
+    <div id="board" className="center">
+      <Tile />
+      <Tile />
+    </div>
+  );
 }

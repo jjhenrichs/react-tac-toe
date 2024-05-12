@@ -1,5 +1,6 @@
 import React from "react";
+import "./Tile.css";
 
 export default function Tile() {
-  return <div>Tile Square Component</div>;
+  return <div id="tile"></div>;
 }
