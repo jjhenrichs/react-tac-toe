@@ -10,8 +10,10 @@ function App() {
   const pattern = turn % 2 === 1 ? "X" : "O";
 
   const handleClick = ({ target }) => {
-    target.innerHTML = pattern;
-    setTurn((prev) => prev + 1);
+    if (!target.innerHTML) {
+      target.innerHTML = pattern;
+      setTurn((prev) => prev + 1);
+    }
   };
 
   return (
