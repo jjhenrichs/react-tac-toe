@@ -9,9 +9,10 @@ function App() {
 
   const pattern = turn % 2 === 1 ? "X" : "O";
 
-  const handleClick = ({ target }) => {
-    if (!target.innerHTML) {
-      target.innerHTML = pattern;
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (!e.target.innerHTML) {
+      e.target.innerHTML = pattern;
       setTurn((prev) => prev + 1);
     }
   };
@@ -20,6 +21,9 @@ function App() {
     <div className="App">
       <h1>Tic-Tac-Toe</h1>
       <Board board={board} handleClick={handleClick} />
+      <button onClick={window.location.reload.bind(window.location)}>
+        Restart
+      </button>
     </div>
   );
 }
