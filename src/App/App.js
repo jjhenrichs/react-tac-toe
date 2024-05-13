@@ -11,6 +11,7 @@ function App() {
 
   const handleClick = ({ target }) => {
     target.innerHTML = pattern;
+    setTurn((prev) => prev + 1);
   };
 
   return (
