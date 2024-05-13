@@ -3,16 +3,20 @@ import React, { useState } from "react";
 import Board from "../Board/Board";
 
 function App() {
-  const board = ["X", "X", "", "", "", "", "", "", ""];
+  const board = ["", "", "", "", "", "", "", "", ""];
 
   const [turn, setTurn] = useState(1);
 
   const pattern = turn % 2 === 1 ? "X" : "O";
 
+  const handleClick = ({ target }) => {
+    target.innerHTML = pattern;
+  };
+
   return (
     <div className="App">
       <h1>Tic-Tac-Toe</h1>
-      <Board board={board} />
+      <Board board={board} handleClick={handleClick} />
     </div>
   );
 }
