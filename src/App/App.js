@@ -20,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <h1>Tic-Tac-Toe</h1>
+      <div id="status">Begin Game</div>
       <Board board={board} handleClick={handleClick} />
       <button onClick={window.location.reload.bind(window.location)}>
         Restart
