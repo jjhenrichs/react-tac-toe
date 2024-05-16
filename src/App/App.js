@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Board from "../Board/Board";
 
 function App() {
-  const board = ["", "", "", "", "", "", "", "", ""];
+  const [board, setBoard] = useState(["", "", "", "X", "", "", "", "", ""]);
 
   const [turn, setTurn] = useState(1);
 
@@ -11,10 +11,17 @@ function App() {
 
   useEffect(() => {
     const status = document.getElementById("status");
-    checkWinner();
-    status.innerHTML =
-      pattern === "X" ? "Player 1's Turn. X" : "Player 2's Turn. O";
-    status.innerHTML = turn === 10 ? "Game over - Draw" : status.innerHTML;
+
+    const winningPattern = checkWinner();
+    console.log(winningPattern);
+    if (winningPattern !== undefined || turn !== 10) {
+      status.innerHTML =
+        pattern === "X" ? "Player 1's Turn. X" : "Player 2's Turn. O";
+    } else {
+      status.innerHTML = "Game over - Draw";
+    }
+
+    console.log(winningPattern, turn);
   }, [turn, pattern]);
 
   const handleClick = (e) => {
@@ -36,8 +43,15 @@ function App() {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    for (const line of lines) {
-      console.log(line);
+    console.log("Liine 46");
+    for (let i in lines) {
+      console.log("Liine 48");
+      const [a, b, c] = lines[i];
+      console.log("Line 50: ", i, a, b, c, board);
+
+      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        console.log(board[a]);
+      }
     }
   };
 
