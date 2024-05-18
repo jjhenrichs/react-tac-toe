@@ -14,11 +14,23 @@ function App() {
     const status = document.getElementById("status");
 
     const winningPattern = checkWinner();
-    if (winningPattern !== undefined || turn !== 9) {
+    console.log(winningPattern, turn);
+    if (turn === 9) {
+      console.log("The game should be over");
+    }
+
+    if (turn < 9 && !winningPattern) {
       status.innerHTML =
         pattern === "X" ? "Player 1's Turn. X" : "Player 2's Turn. O";
     } else {
-      status.innerHTML = "Game over - Draw";
+      if (!winningPattern) {
+        status.innerHTML = "Game over - Draw";
+      } else {
+        status.innerHTML =
+          winningPattern === "X"
+            ? "Game Over - Player 1 Wins"
+            : "Game Over - Player 2 Wins";
+      }
     }
   }, [turn, pattern]);
 
@@ -32,7 +44,7 @@ function App() {
         return tile;
       }
     });
-    console.log(newBoard, "Line 35");
+    console.log(newBoard);
     setBoard(newBoard);
   };
 
@@ -52,6 +64,7 @@ function App() {
 
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
         console.log(board[a]);
+        return board[a];
       }
     }
   };
