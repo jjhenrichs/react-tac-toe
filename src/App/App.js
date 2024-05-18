@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import Board from "../Board/Board";
-import Tile from "../Tile/Tile";
 
 function App() {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
@@ -77,7 +76,7 @@ function App() {
       <h1>Tic-Tac-Toe</h1>
       <div id="status"></div>
       <div id="board" className="center">
-        <Board board={board} winner={winner} handleClick={handleClick} />
+        <Board board={board} handleClick={handleClick} />
       </div>
       <button
         id="restart"

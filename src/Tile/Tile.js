@@ -6,7 +6,7 @@ export default function Tile({ mark, index, handleClick }) {
     <div
       id="tile"
       key={"tile_" + index}
-      onClick={(index) => handleClick(index)}
+      onClick={() => handleClick(index, mark)}
     >
       {mark}
     </div>
