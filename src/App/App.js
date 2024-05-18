@@ -80,12 +80,16 @@ function App() {
             key={"tile_" + index}
             onClick={() => handleClick(index, data)}
             value={index}
+            disabled
           >
             {data}
           </span>
         ))}
       </div>
-      <button onClick={window.location.reload.bind(window.location)}>
+      <button
+        id="restart"
+        onClick={window.location.reload.bind(window.location)}
+      >
         Restart
       </button>
     </div>
