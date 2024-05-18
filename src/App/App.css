@@ -14,28 +14,3 @@
   margin: 40px;
   padding: 10px 15px;
 }
-
-/* Board */
-#board {
-  border: 1px solid black;
-  width: 330px;
-  height: 330px;
-  background: black;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.center {
-  margin: 0px auto;
-}
-
-/* Tile */
-#tile {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-  background: lime;
-  font-weight: 600;
-  font-size: 4.5em;
-}
