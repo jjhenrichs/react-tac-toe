@@ -15,7 +15,9 @@ function App() {
     const winning_pattern = checkWinner();
 
     if (winning_pattern) {
-      setWinner(winning_pattern);
+      console.log(winner);
+      setWinner((prev) => (prev = winning_pattern));
+      console.log(winner);
     }
 
     console.log(winner, turn);
@@ -36,11 +38,12 @@ function App() {
             : "Game Over - Player 2 Wins";
       }
     }
-  }, [turn, pattern]);
+  }, [turn, pattern, winner]);
 
-  const handleClick = (index) => {
+  const handleClick = (index, data) => {
     const newBoard = board.map((tile, i) => {
-      if (i === index) {
+      console.log(data);
+      if (i === index && !data) {
         tile = pattern;
         setTurn((prev) => prev + 1);
         return tile;
@@ -84,7 +87,7 @@ function App() {
             key={"tile_" + index}
             onClick={() => handleClick(index, data)}
             value={index}
-            disabled={checkWinner}
+            disabled={winner !== ""}
           >
             {data}
           </div>
