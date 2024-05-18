@@ -22,12 +22,18 @@ function App() {
     }
   }, [turn, pattern]);
 
-  const handleClick = (index, data) => {
-    // if (!e.target.innerHTML) {
-    //   e.target.innerHTML = pattern;
-    //   setTurn((prev) => prev + 1);
-    // }
-    console.log(index, data, board[index]);
+  const handleClick = (index) => {
+    const newBoard = board.map((tile, i) => {
+      if (i === index) {
+        tile = pattern;
+        setTurn((prev) => prev + 1);
+        return tile;
+      } else {
+        return tile;
+      }
+    });
+    console.log(newBoard, "Line 35");
+    setBoard(newBoard);
   };
 
   const checkWinner = () => {
