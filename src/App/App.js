@@ -11,6 +11,10 @@ function App() {
   const pattern = turn % 2 === 0 ? "X" : "O";
 
   useEffect(() => {
+    updateStatus();
+  }, [turn, pattern, winner]);
+
+  const updateStatus = () => {
     const status = document.getElementById("status");
     const winning_pattern = checkWinner();
 
@@ -31,7 +35,7 @@ function App() {
             : "Game Over - Player 2 Wins";
       }
     }
-  }, [turn, pattern, winner]);
+  };
 
   const handleClick = (index, data) => {
     if (!winner) {
