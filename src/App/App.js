@@ -5,29 +5,33 @@ import Tile from "../Tile/Tile";
 
 function App() {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
-
+  const [winner, setWinner] = useState("");
   const [turn, setTurn] = useState(0);
 
   const pattern = turn % 2 === 0 ? "X" : "O";
 
   useEffect(() => {
     const status = document.getElementById("status");
+    const winning_pattern = checkWinner();
 
-    const winningPattern = checkWinner();
-    console.log(winningPattern, turn);
+    if (winning_pattern) {
+      setWinner(winning_pattern);
+    }
+
+    console.log(winner, turn);
     if (turn === 9) {
       console.log("The game should be over");
     }
 
-    if (turn < 9 && !winningPattern) {
+    if (turn < 9 && !winner) {
       status.innerHTML =
         pattern === "X" ? "Player 1's Turn. X" : "Player 2's Turn. O";
     } else {
-      if (!winningPattern) {
+      if (!winner) {
         status.innerHTML = "Game over - Draw";
       } else {
         status.innerHTML =
-          winningPattern === "X"
+          winner === "X"
             ? "Game Over - Player 1 Wins"
             : "Game Over - Player 2 Wins";
       }
@@ -80,6 +84,7 @@ function App() {
             key={"tile_" + index}
             onClick={() => handleClick(index, data)}
             value={index}
+            disabled={checkWinner}
           >
             {data}
           </div>
