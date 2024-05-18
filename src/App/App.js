@@ -77,17 +77,7 @@ function App() {
       <h1>Tic-Tac-Toe</h1>
       <div id="status"></div>
       <div id="board" className="center">
-        {board.map((data, index) => (
-          <div
-            id="tile"
-            key={"tile_" + index}
-            onClick={() => handleClick(index, data)}
-            value={index}
-            disabled={winner === "X" || winner === "O"}
-          >
-            {data}
-          </div>
-        ))}
+        <Board board={board} winner={winner} handleClick={handleClick} />
       </div>
       <button
         id="restart"
