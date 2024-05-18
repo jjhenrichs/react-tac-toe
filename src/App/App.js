@@ -75,15 +75,14 @@ function App() {
       <div id="status"></div>
       <div id="board" className="center">
         {board.map((data, index) => (
-          <span
+          <div
             id="tile"
             key={"tile_" + index}
             onClick={() => handleClick(index, data)}
             value={index}
-            disabled
           >
             {data}
-          </span>
+          </div>
         ))}
       </div>
       <button
